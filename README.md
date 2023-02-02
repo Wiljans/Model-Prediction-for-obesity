@@ -1,2 +1,2 @@
 # model-prediction-for-obesity
-Regression Analysis Scenario 1 Lab 1
+high-dimensional regression analysis scenario 1
