@@ -7,5 +7,5 @@ Objective is to build a regression model to analyse one out of the two datasets.
 - variable transformation to correct inadequacies
 - multicollinearity diagnostics
 - check model evaluation criterias, motivation of # of folds in CV step.
-- computer intensive rocedures, bootstrap residuals in MPG or bootstrap based confiedence intervals using percentile method
+- computer intensive procedures, bootstrap residuals in MPG or bootstrap based confiedence intervals using percentile method
 
