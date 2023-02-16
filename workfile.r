@@ -8,6 +8,12 @@ bodyfatwomen = read.csv("bodyfatwomen.csv") #store dataset from .csv
 existing_data = sapply(bodyfatwomen, class)
 print(existing_data)
 
-# print DEXfat column vs age and do linear regression with a 95% confidence interval
-plot(bodyfatwomen$age, bodyfatwomen$DEXfat, main="DEXfat vs. Age", xlab="Age", ylab="DEXfat", col="red", pch=20, cex=2, bg="white")
-abline(lm(bodyfatwomen$DEXfat ~ bodyfatwomen$age), col="blue", lwd=2)
+#residual plot for DEXfat - DEXfat average vs index
+plot(bodyfatwomen$DEXfat - mean(bodyfatwomen$DEXfat), main="Residual Plot for DEXfat", xlab="Index", ylab="Residual", col="red", pch=20, cex=1.5, bg="white")
+# plot lines for standard variance
+abline(h=sd(bodyfatwomen$DEXfat), col="blue", lwd=4)
+abline(h=-sd(bodyfatwomen$DEXfat), col="blue", lwd=4)
+# include legends for the lines and the points
+legend("topright", legend=c("DEXfat", "Standard Deviation"), col=c("red", "blue"), pch=c(20, 1))
+# make points bigger and lines thicker
+par(cex=1, lwd=2)
