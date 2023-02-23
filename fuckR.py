@@ -20,18 +20,21 @@ y_hat = X.dot(beta)
 # calculate residuals
 residuals = y - y_hat
 
-standard_deviation = np.dot(residuals, residuals) / (len(y) - len(X.columns))
-
-print('Standard Variance: ', standard_deviation)
-
+standard_deviation = np.sqrt(np.dot(residuals, residuals) / (len(y) - len(X.columns)))
+print('Standard deviation: ', standard_deviation)
 
 # Plot residuals
 plt.figure(figsize=(20, 10))
 plt.scatter(residuals.index, residuals)
-plt.axhline(y=residuals.mean(), color='r', linestyle='-')
+plt.axhline(y=residuals.mean(), color = 'r', linestyle = '-')
+
+# Plot the upper and lower standard deviation lines
+plt.axhline(y=residuals.mean() + standard_deviation, color = 'g', linestyle='--')
+plt.axhline(y=residuals.mean() - standard_deviation, color = 'g', linestyle='--')
+
 plt.title('Residuals', fontsize = 20)
-plt.xlabel('Observation', fontsize = 15)
-plt.ylabel('Index', fontsize = 15)
-plt.legend(['Error Magnitude', 'Error Mean'])
+plt.xlabel('Index', fontsize = 15)
+plt.ylabel('Error Magnitude', fontsize = 15)
+plt.legend(['Error Magnitude', 'Error Mean', 'Standard Deviation'])
 plt.show()
 
