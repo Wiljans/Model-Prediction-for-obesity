@@ -14,14 +14,22 @@ beta = solve(t(X) %*% X) %*% t(X) %*% y
 
 # Compute the residuals and plot them
 residuals = y - X %*% beta
+
+# plot the residuals vs. the index 
 plot(residuals, main = "Residual Plot for DEXfat", xlab = "Index", ylab = "Residual", col = "red", pch = 20, cex = 1.5, bg = "white")
 
 # plot lines for standard variance
 abline(h = sd(residuals), col = "blue", lwd = 4)
 abline(h = -sd(residuals), col = "blue", lwd = 4)
 
+
+# Plot the residal mean
+abline(h = mean(residuals), col = "green", lwd = 4)
+
 # include legends for the lines and the points
-legend("topright", legend = c("DEXfat", "Standard Deviation"), col = c("red", "blue"), pch = c(20, 1))
+legend("topright", legend = c("DEXfat", "Standard Deviation", "Error mean"), col = c("red", "blue", "green"), pch = c(20, 1))
 
 # make points bigger and lines thicker
 par(cex = 1, lwd = 2)
+
+
